@@ -1,4 +1,4 @@
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     projectile = sprites.createProjectileFromSprite(img`
         ................
         ................
@@ -48,7 +48,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         .87766778868....
         ..877667688.....
         ...86767788.....
-        `, mySprite, 0, 50)
+        `, mySprite, 0, -50)
     music.pewPew.play()
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
@@ -86,6 +86,7 @@ mySprite = sprites.create(img`
     `, SpriteKind.Player)
 mySprite.setPosition(77, 32)
 controller.moveSprite(mySprite, 100, 100)
+mySprite.setPosition(76, 51)
 mySprite.setStayInScreen(true)
 info.setLife(5)
 game.onUpdateInterval(1000, function () {
